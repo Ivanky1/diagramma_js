@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+    <title></title>
+
+</head>
+<body>
+
+<script>
+    ymaps.ready(init);
+
+    function init() {
+        if (navigator.geolocation) {
+            maps_render();
+        } else {
+            document.getElementById('d').innerHTML = 'Не поддерживается геолакатор';
+        }
+    }
+
+    function maps_render() {
+        navigator.geolocation.getCurrentPosition(function (position) {
+        //    d.innerHTML = 'Широта: '+position.coords.latitude+' Долгота: '+position.coords.longitude
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+
+            var myMap = new ymaps.Map ("map", {
+                center: [latitude, longitude],
+                zoom: 10,
+                controls: ['zoomControl', 'searchControl', 'typeSelector',  'fullscreenControl']
+            });
+            myMap.controls.add('zoomControl', 'searchControl', 'typeSelector',  'fullscreenControl');
+
+            var myPlacemark = new ymaps.Placemark([latitude, longitude], {});
+            myMap.geoObjects.add(myPlacemark);
+
+        });
+
+    }
+
+
+
+</script>
+<style>
+    #map {
+        margin: 0 auto;
+        height: 500px;
+        width: 800px;
+        border: 10px solid #ddd;
+    }
+</style>
+<div id="map"></div>
+</body>
+</html>

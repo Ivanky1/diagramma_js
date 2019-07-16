@@ -1,0 +1,9 @@
+addDefaultCharset utf8
+
+#RewriteEngine on
+#RewriteRule aaaa$ http://diagramma_js.ru/html5.html [R=301]
+
+RewriteEngine on
+RewriteCond %{HTTP_COOKIE} !^.*version.*$ [NC]
+RewriteRule ^node$|^node\/$ http://m.bis-expert.ru [R=301]
+

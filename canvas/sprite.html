@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>HTML5 API. Лабораторная работа: простая анимация</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    
+    canvas {
+      display: block;
+      margin: 20px auto 0;
+      border: 1px dotted #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas" width="500" height="400"></canvas>
+  <script>
+      var canvas = document.getElementById('canvas');
+      var ctx = canvas.getContext('2d');
+      var img = new Image();
+      img.src = 'sprite.gif';
+      var x = 250 - 33;
+      var y = 200 - 46;
+      img.onload = function() {
+          ctx.drawImage(img, 0, 0, 48,66, x, y, 48, 66);
+      }
+      window.addEventListener('keydown', myEventHandler, false);
+      function myEventHandler(e) {
+          if (e.keyCode == 37 || e.keyCode == 38 || e.keyCode== 39 || e.keyCode == 40)
+            ctx.clearRect(0,0,500,400);
+         /* if (x > 500) {
+              x = 0;
+          }
+          if (x < 0) {
+              x = 500;
+          }
+          if (y > 400) {
+              y = 0;
+          }
+          if (y < 0) {
+              y = 400;
+          } */
+          switch (e.keyCode) {
+              case 37:
+                  x -=10;
+                  x = (x <= 0) ?0 :x;
+                  ctx.drawImage(img, 48, 0, 48,66, x, y, 48, 66);
+                  break;
+              case 38:
+                  y -=10;
+                  y = (y <= 0) ?0 :y;
+                  ctx.drawImage(img, 0, 0, 48,66, x, y, 48, 66);
+                  break;
+              case 39:
+                  x += 10;
+                  x = (x >= 452) ?452 :x;
+                  ctx.drawImage(img, 144, 0, 48,66, x, y, 48, 66);
+                  break;
+              case 40:
+                  y += 10;
+                  y = (y >= 334) ?334 :y;
+                  ctx.drawImage(img, 96, 0, 48,66, x, y, 48, 66);
+                  break;
+          }
+      }
+
+  </script>
+</body>
+
+</html>

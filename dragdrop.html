@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<style>
+    #box, #box2 {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        border: 3px #000 dotted;
+    }
+</style>
+
+<div id="box"></div>
+<div id="box2"></div>
+<img draggable="true" src="img/red.png" id="i1">
+<img draggable="true" src="img/green.png" id="i2">
+<script>
+    var box = document.getElementById('box');
+    box.ondragenter = onDrag;
+    box.ondragover = onDrag;
+    box.ondrop = onDrop;
+
+    var box2 = document.getElementById('box2');
+    var i1 = document.getElementById('i1');
+    var i2 = document.getElementById('i2');
+    box2.ondragenter = onDrag;
+    box2.ondragover = onDrag;
+    box2.ondrop = onDrop2;
+
+
+    //ondragstart - в начале драг
+    //ondrag - в процессе драг
+    //ondragend -  в конце драг
+
+    //ondragenter -  вошли в зону действия драг
+    //ondragover -  = ondrag драг
+    //ondragleave -  вышли в зону действия драг
+    //ondrop -
+
+
+
+    i1.ondragstart = ondragStart;
+    i2.ondragstart = ondragStart;
+
+    function ondragStart(e) {
+        e.dataTransfer.setData('Text', e.target.id);
+    }
+
+    function onDrop2(e) {
+        e.stopPropagation();
+        e.preventDefault();
+
+        var data = e.dataTransfer.getData('Text');
+
+        var img = document.getElementById(data);
+        img.width = 100
+        img.height = 100
+        if (box2.hasChildNodes()) {
+            box2.replaceChild(img, box2.firstChild);
+        } else {
+            box2.appendChild(img);
+        }
+    }
+
+    function onDrag(e) {
+        e.stopPropagation();
+        e.preventDefault();
+    }
+
+    function onDrop(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var file = e.dataTransfer.files[0];
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var img = new Image(100, 100);
+            img.src = e.target.result;
+            console.log(e.target.result)
+            box.appendChild(img);
+        }
+        reader.readAsDataURL(file);
+    }
+
+</script>
+
+
+</body>
+</html>

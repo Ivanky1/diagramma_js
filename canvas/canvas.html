@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+</head>
+<body>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    canvas {
+        display: block;
+        margin: 20px auto 0;
+        border: 1px dotted #ccc;
+    }
+</style>
+
+<canvas id="canvas" width="500" height="500"></canvas>
+
+<script>
+    var canvas = document.getElementById('canvas')
+    var ctx = canvas.getContext('2d');
+    var x =  canvas.width/2;
+        y =  canvas.height/2;
+        r =  150;
+        a1 = 0;
+        a2 = 2.0 * Math.PI;
+        c = true;
+   // ctx.beginPath();
+   // ctx.stroke();
+  //  ctx.arc(x, y, r, a1, a2, c);
+ /*   ctx.lineWidth = 10;
+    ctx.rect(50, 100, 200, 200);
+    var grd = ctx.createLinearGradient(0, 100, 200, 200);
+    grd.addColorStop(0, 'yellow');
+    grd.addColorStop(1, 'silver');
+    ctx.fillStyle = grd;
+
+
+    var img = new Image();
+    img.src = 'pattern.gif';
+    window.onload = function() {
+        var p = ctx.createPattern(img, 'repeat');
+        ctx.rect(50, 100, 200, 200);
+        ctx.fillStyle = p;
+        ctx.fill();
+    }
+  */
+
+    ctx.transform(10,10, 1, 10, 10, 30);
+    ctx.fillStyle = 'pink';
+    ctx.fillRect(0,0,200,300);
+
+
+    window.onload = function() {
+        ctx.font = 'bold Italic 64px Georgia';
+        ctx.fillStyle = 'red';
+        ctx.strokeStyle = 'pink';
+        ctx.strokeText('Hello!', 150, 150);
+		
+    }
+
+
+
+
+</script>
+
+</body>
+</html>

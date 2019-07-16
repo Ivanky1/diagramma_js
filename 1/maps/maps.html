@@ -1,0 +1,46 @@
+<link href="dist/jqvmap.css" media="screen" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="dist/jquery.vmap.js"></script>
+<script src="dist/maps/jquery.vmap.world.js"></script>
+<script src="dist/jquery.vmap.sampledata.js"></script>
+
+<script>
+    function touch_detect() {
+        return 'ontouchstart' in window || 'onmsgesturechange' in window || navigator.msMaxTouchPoints > 0;
+    }
+
+    jQuery(document).ready(function () {
+        jQuery('#vmap').vectorMap({
+            map: 'world_en',
+            enableZoom: false,
+            showTooltip: false,
+            onRegionClick: function (element, code, region) {
+                if (!touch_detect()) {
+                    console.log(element);
+                    // we're not on a mobile device, handle the click
+                    var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
+                    alert(message);
+                }
+            },
+            onRegionOver: function (element, code, region) {
+                if (touch_detect()) {
+                    /// we're not on a mobile device, handle the click
+                    var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
+                    alert(message);
+                }
+            },
+            selectedRegions: ['FR'],
+            multiSelectRegion: true,
+        });
+    });
+</script>
+</head>
+<body>
+<div id="vmap" style="width: 600px; height: 400px;"></div>
+</body>
+
+<style>
+    .a {
+        background: #E1E1E1;
+    }
+</style>

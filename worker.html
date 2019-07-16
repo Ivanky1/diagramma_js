@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+
+
+<div id="d">Загружено <span id="s">0</span>%</div>
+<progress id="p" value="0" max="100"></progress>
+<button id="b">Запустить</button>
+
+<script>
+    var d = document.getElementById('d');
+    var s = document.getElementById('s');
+    var p = document.getElementById('p');
+    document.getElementById('b').onclick = function() {
+        var worker = new Worker('worker.js');
+        worker.postMessage(10000000);
+        worker.onmessage = function(event) {
+			if (event.data != 'Цикл завершен') {
+				p.value = s.firstChild.nodeValue = event.data;
+			} else {
+				//d.nodeValue = event.data;
+			}			
+        }
+
+    }
+
+</script>
+
+
+</body>
+</html>

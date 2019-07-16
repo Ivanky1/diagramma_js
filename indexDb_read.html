@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+</head>
+<body>
+
+<script>
+    var db;
+    var openRequest = indexedDB.open('mycourses-2', 1);
+    openRequest.onupgradeneeded = function(e) {
+        var thisDb = e.target.result;
+        if (!thisDb.objectStoreNames.contains('courses')) {
+            thisDb.createObjectStore('courses', {autoIncrement: true});
+        }
+        console.log('Upgrading....');
+    }
+    openRequest.onsuccess = function(e) {
+        console.log('Success....');
+        db = e.target.result;
+        var transaction = db.transaction(['courses'], 'readonly');
+        var store = transaction.objectStore('courses');
+        var cursor = store.openCursor(null, 'next');
+       /* var course = {
+            title: 'Html5',
+            length: 24,
+            description: 'Course off Html5'
+        };*/
+       // var cursor = store.get(2);
+        cursor.onsuccess = function(e) {
+            var res = e.target.result;
+            if (res) {
+                console.log('Key:' +res.key+ " value:");
+                console.dir(res.value);
+                res.continue();
+            }
+        }
+        cursor.onerror = function(e) {
+            var err = e.target.error;
+            console.log('Error record....'+err.name+' '+err.message);
+        }
+    }
+
+    openRequest.onerror = function(e) {
+        var err = e.target.error;
+        console.log('Error....'+err.name+' '+err.message);
+    }
+
+
+
+</script>
+
+</body>
+</html>

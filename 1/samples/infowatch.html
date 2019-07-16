@@ -1,0 +1,339 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>amMap example</title>
+    <script src="http://www.amcharts.com/lib/3/amcharts.js" type="text/javascript"></script>
+    <script src="http://www.amcharts.com/lib/3/ammap_amcharts_extension.js" type="text/javascript"></script>
+    <script src="http://www.amcharts.com/lib/maps/js/worldLow.js" type="text/javascript"></script>
+    <script>
+
+        var map;
+        AmCharts.ready(function() {
+            // *** CREATE MAP ***********************************************************
+            map = new AmCharts.AmMap();
+
+            //map.panEventsEnabled = true; // this line enables pinch-zooming and dragging on touch devices
+            var dataProvider = {
+                mapVar: AmCharts.maps.worldLow
+            };
+            map.areasSettings = {
+                unlistedAreasColor: "#DDDDDD",
+                rollOverOutlineColor: "#FFFFFF",
+                rollOverColor: "#CC0000" };
+
+            dataProvider.areas = [
+                {name: 'Afghanistan', id: 'AF', selectable: true },
+                {name: 'Åland Islands', id: 'AX', selectable: true },
+                {name: 'Albania', id: 'AL', selectable: true },
+                {name: 'Algeria', id: 'DZ', selectable: true },
+                {name: 'American Samoa', id: 'AS', selectable: true },
+                {name: 'AndorrA', id: 'AD', selectable: true },
+                {name: 'Angola', id: 'AO', selectable: true },
+                {name: 'Anguilla', id: 'AI', selectable: true },
+                {name: 'Antarctica', id: 'AQ', selectable: true },
+                {name: 'Antigua and Barbuda', id: 'AG', selectable: true },
+               // {name: 'Argentina', id: 'AR', selectable: true },
+                {name: 'Armenia', id: 'AM', selectable: true },
+                {name: 'Aruba', id: 'AW', selectable: true },
+                {name: 'Australia', id: 'AU', selectable: true },
+              //  {name: 'Austria', id: 'AT', selectable: true },
+                {name: 'Azerbaijan', id: 'AZ', selectable: true },
+                {name: 'Bahamas', id: 'BS', selectable: true },
+             //   {name: 'Bahrain', id: 'BH', selectable: true },
+                {name: 'Bangladesh', id: 'BD', selectable: true },
+                {name: 'Barbados', id: 'BB', selectable: true },
+                {name: 'Belarus', id: 'BY', selectable: true },
+            //    {name: 'Belgium', id: 'BE', selectable: true },
+                {name: 'Belize', id: 'BZ', selectable: true },
+                {name: 'Benin', id: 'BJ', selectable: true },
+                {name: 'Bermuda', id: 'BM', selectable: true },
+                {name: 'Bhutan', id: 'BT', selectable: true },
+                {name: 'Bolivia', id: 'BO', selectable: true },
+                {name: 'Bosnia and Herzegovina', id: 'BA', selectable: true },
+                {name: 'Botswana', id: 'BW', selectable: true },
+                {name: 'Bouvet Island', id: 'BV', selectable: true },
+                {name: 'Brazil', id: 'BR', selectable: true },
+                {name: 'British Indian Ocean Territory', id: 'IO', selectable: true },
+                {name: 'Brunei Darussalam', id: 'BN', selectable: true },
+              //  {name: 'Bulgaria', id: 'BG', selectable: true },
+                {name: 'Burkina Faso', id: 'BF', selectable: true },
+                {name: 'Burundi', id: 'BI', selectable: true },
+                {name: 'Cambodia', id: 'KH', selectable: true },
+                {name: 'Cameroon', id: 'CM', selectable: true },
+                {name: 'Canada', id: 'CA', selectable: true },
+                {name: 'Cape Verde', id: 'CV', selectable: true },
+                {name: 'Cayman Islands', id: 'KY', selectable: true },
+                {name: 'Central African Republic', id: 'CF', selectable: true },
+                {name: 'Chad', id: 'TD', selectable: true },
+                {name: 'Chile', id: 'CL', selectable: true },
+                {name: 'China', id: 'CN', selectable: true },
+                {name: 'Christmas Island', id: 'CX', selectable: true },
+                {name: 'Cocos (Keeling) Islands', id: 'CC', selectable: true },
+                {name: 'Colombia', id: 'CO', selectable: true },
+                {name: 'Comoros', id: 'KM', selectable: true },
+                {name: 'Congo', id: 'CG', selectable: true },
+                {name: 'Congo, The Democratic Republic of the', id: 'CD', selectable: true },
+                {name: 'Cook Islands', id: 'CK', selectable: true },
+                {name: 'Costa Rica', id: 'CR', selectable: true },
+                {name: 'Cote D\'Ivoire', id: 'CI', selectable: true },
+                {name: 'Croatia', id: 'HR', selectable: true },
+                {name: 'Cuba', id: 'CU', selectable: true },
+                {name: 'Cyprus', id: 'CY', selectable: true },
+                {name: 'Czech Republic', id: 'CZ', selectable: true },
+                {name: 'Denmark', id: 'DK', selectable: true },
+                {name: 'Djibouti', id: 'DJ', selectable: true },
+                {name: 'Dominica', id: 'DM', selectable: true },
+                {name: 'Dominican Republic', id: 'DO', selectable: true },
+                {name: 'Ecuador', id: 'EC', selectable: true },
+                {name: 'Egypt', id: 'EG', selectable: true },
+                {name: 'El Salvador', id: 'SV', selectable: true },
+                {name: 'Equatorial Guinea', id: 'GQ', selectable: true },
+                {name: 'Eritrea', id: 'ER', selectable: true },
+                {name: 'Estonia', id: 'EE', selectable: true },
+                {name: 'Ethiopia', id: 'ET', selectable: true },
+                {name: 'Falkland Islands (Malvinas)', id: 'FK', selectable: true },
+                {name: 'Faroe Islands', id: 'FO', selectable: true },
+                {name: 'Fiji', id: 'FJ', selectable: true },
+                {name: 'Finland', id: 'FI', selectable: true },
+                {name: 'France', id: 'FR', selectable: true },
+                {name: 'French Guiana', id: 'GF', selectable: true },
+                {name: 'French Polynesia', id: 'PF', selectable: true },
+                {name: 'French Southern Territories', id: 'TF', selectable: true },
+                {name: 'Gabon', id: 'GA', selectable: true },
+                {name: 'Gambia', id: 'GM', selectable: true },
+                {name: 'Georgia', id: 'GE', selectable: true },
+                {name: 'Germany', id: 'DE', selectable: true },
+                {name: 'Ghana', id: 'GH', selectable: true },
+                {name: 'Gibraltar', id: 'GI', selectable: true },
+                {name: 'Greece', id: 'GR', selectable: true },
+                {name: 'Greenland', id: 'GL', selectable: true },
+                {name: 'Grenada', id: 'GD', selectable: true },
+                {name: 'Guadeloupe', id: 'GP', selectable: true },
+                {name: 'Guam', id: 'GU', selectable: true },
+                {name: 'Guatemala', id: 'GT', selectable: true },
+                {name: 'Guernsey', id: 'GG', selectable: true },
+                {name: 'Guinea', id: 'GN', selectable: true },
+                {name: 'Guinea-Bissau', id: 'GW', selectable: true },
+                {name: 'Guyana', id: 'GY', selectable: true },
+                {name: 'Haiti', id: 'HT', selectable: true },
+                {name: 'Heard Island and Mcdonald Islands', id: 'HM', selectable: true },
+                {name: 'Holy See (Vatican City State)', id: 'VA', selectable: true },
+                {name: 'Honduras', id: 'HN', selectable: true },
+                {name: 'Hong Kong', id: 'HK', selectable: true },
+                {name: 'Hungary', id: 'HU', selectable: true },
+                {name: 'Iceland', id: 'IS', selectable: true },
+                {name: 'India', id: 'IN', selectable: true },
+                {name: 'Indonesia', id: 'ID', selectable: true },
+                {name: 'Iran, Islamic Republic Of', id: 'IR', selectable: true },
+                {name: 'Iraq', id: 'IQ', selectable: true },
+                {name: 'Ireland', id: 'IE', selectable: true },
+                {name: 'Isle of Man', id: 'IM', selectable: true },
+                {name: 'Israel', id: 'IL', selectable: true },
+                {name: 'Italy', id: 'IT', selectable: true },
+                {name: 'Jamaica', id: 'JM', selectable: true },
+                {name: 'Japan', id: 'JP', selectable: true },
+                {name: 'Jersey', id: 'JE', selectable: true },
+                {name: 'Jordan', id: 'JO', selectable: true },
+                {name: 'Kazakhstan', id: 'KZ', selectable: true },
+                {name: 'Kenya', id: 'KE', selectable: true },
+                {name: 'Kiribati', id: 'KI', selectable: true },
+                {name: 'Korea, Democratic People\'S Republic of', id: 'KP', selectable: true },
+                {name: 'Korea, Republic of', id: 'KR', selectable: true },
+                {name: 'Kuwait', id: 'KW', selectable: true },
+                {name: 'Kyrgyzstan', id: 'KG', selectable: true },
+                {name: 'Lao People\'S Democratic Republic', id: 'LA', selectable: true },
+                {name: 'Latvia', id: 'LV', selectable: true },
+                {name: 'Lebanon', id: 'LB', selectable: true },
+                {name: 'Lesotho', id: 'LS', selectable: true },
+                {name: 'Liberia', id: 'LR', selectable: true },
+                {name: 'Libyan Arab Jamahiriya', id: 'LY', selectable: true },
+                {name: 'Liechtenstein', id: 'LI', selectable: true },
+                {name: 'Lithuania', id: 'LT', selectable: true },
+                {name: 'Luxembourg', id: 'LU', selectable: true },
+                {name: 'Macao', id: 'MO', selectable: true },
+                {name: 'Macedonia, The Former Yugoslav Republic of', id: 'MK', selectable: true },
+                {name: 'Madagascar', id: 'MG', selectable: true },
+                {name: 'Malawi', id: 'MW', selectable: true },
+                {name: 'Malaysia', id: 'MY', selectable: true },
+                {name: 'Maldives', id: 'MV', selectable: true },
+                {name: 'Mali', id: 'ML', selectable: true },
+                {name: 'Malta', id: 'MT', selectable: true },
+                {name: 'Marshall Islands', id: 'MH', selectable: true },
+                {name: 'Martinique', id: 'MQ', selectable: true },
+                {name: 'Mauritania', id: 'MR', selectable: true },
+                {name: 'Mauritius', id: 'MU', selectable: true },
+                {name: 'Mayotte', id: 'YT', selectable: true },
+                {name: 'Mexico', id: 'MX', selectable: true },
+                {name: 'Micronesia, Federated States of', id: 'FM', selectable: true },
+                {name: 'Moldova, Republic of', id: 'MD', selectable: true },
+                {name: 'Monaco', id: 'MC', selectable: true },
+                {name: 'Mongolia', id: 'MN', selectable: true },
+                {name: 'Montserrat', id: 'MS', selectable: true },
+                {name: 'Morocco', id: 'MA', selectable: true },
+                {name: 'Mozambique', id: 'MZ', selectable: true },
+                {name: 'Myanmar', id: 'MM', selectable: true },
+                {name: 'Namibia', id: 'NA', selectable: true },
+                {name: 'Nauru', id: 'NR', selectable: true },
+                {name: 'Nepal', id: 'NP', selectable: true },
+                {name: 'Netherlands', id: 'NL', selectable: true },
+                {name: 'Netherlands Antilles', id: 'AN', selectable: true },
+                {name: 'New Caledonia', id: 'NC', selectable: true },
+                {name: 'New Zealand', id: 'NZ', selectable: true },
+                {name: 'Nicaragua', id: 'NI', selectable: true },
+                {name: 'Niger', id: 'NE', selectable: true },
+                {name: 'Nigeria', id: 'NG', selectable: true },
+                {name: 'Niue', id: 'NU', selectable: true },
+                {name: 'Norfolk Island', id: 'NF', selectable: true },
+                {name: 'Northern Mariana Islands', id: 'MP', selectable: true },
+                {name: 'Norway', id: 'NO', selectable: true },
+                {name: 'Oman', id: 'OM', selectable: true },
+                {name: 'Pakistan', id: 'PK', selectable: true },
+                {name: 'Palau', id: 'PW', selectable: true },
+                {name: 'Palestinian Territory, Occupied', id: 'PS', selectable: true },
+                {name: 'Panama', id: 'PA', selectable: true },
+                {name: 'Papua New Guinea', id: 'PG', selectable: true },
+                {name: 'Paraguay', id: 'PY', selectable: true },
+                {name: 'Peru', id: 'PE', selectable: true },
+                {name: 'Philippines', id: 'PH', selectable: true },
+                {name: 'Pitcairn', id: 'PN', selectable: true },
+                {name: 'Poland', id: 'PL', selectable: true },
+                {name: 'Portugal', id: 'PT', selectable: true },
+                {name: 'Puerto Rico', id: 'PR', selectable: true },
+                {name: 'Qatar', id: 'QA', selectable: true },
+                {name: 'Reunion', id: 'RE', selectable: true },
+                {name: 'Romania', id: 'RO', selectable: true },
+                {name: 'Russian Federation', id: 'RU', selectable: true },
+                {name: 'RWANDA', id: 'RW', selectable: true },
+                {name: 'Saint Helena', id: 'SH', selectable: true },
+                {name: 'Saint Kitts and Nevis', id: 'KN', selectable: true },
+                {name: 'Saint Lucia', id: 'LC', selectable: true },
+                {name: 'Saint Pierre and Miquelon', id: 'PM', selectable: true },
+                {name: 'Saint Vincent and the Grenadines', id: 'VC', selectable: true },
+                {name: 'Samoa', id: 'WS', selectable: true },
+                {name: 'San Marino', id: 'SM', selectable: true },
+                {name: 'Sao Tome and Principe', id: 'ST', selectable: true },
+                {name: 'Saudi Arabia', id: 'SA', selectable: true },
+                {name: 'Senegal', id: 'SN', selectable: true },
+                {name: 'Serbia and Montenegro', id: 'CS', selectable: true },
+                {name: 'Seychelles', id: 'SC', selectable: true },
+                {name: 'Sierra Leone', id: 'SL', selectable: true },
+                {name: 'Singapore', id: 'SG', selectable: true },
+                {name: 'Slovakia', id: 'SK', selectable: true },
+                {name: 'Slovenia', id: 'SI', selectable: true },
+                {name: 'Solomon Islands', id: 'SB', selectable: true },
+                {name: 'Somalia', id: 'SO', selectable: true },
+                {name: 'South Africa', id: 'ZA', selectable: true },
+                {name: 'South Georgia and the South Sandwich Islands', id: 'GS', selectable: true },
+                {name: 'Spain', id: 'ES', selectable: true },
+                {name: 'Sri Lanka', id: 'LK', selectable: true },
+                {name: 'Sudan', id: 'SD', selectable: true },
+                {name: 'Suriname', id: 'SR', selectable: true },
+                {name: 'Svalbard and Jan Mayen', id: 'SJ', selectable: true },
+                {name: 'Swaziland', id: 'SZ', selectable: true },
+                {name: 'Sweden', id: 'SE', selectable: true },
+                {name: 'Switzerland', id: 'CH', selectable: true },
+                {name: 'Syrian Arab Republic', id: 'SY', selectable: true },
+                {name: 'Taiwan, Province of China', id: 'TW', selectable: true },
+                {name: 'Tajikistan', id: 'TJ', selectable: true },
+                {name: 'Tanzania, United Republic of', id: 'TZ', selectable: true },
+                {name: 'Thailand', id: 'TH', selectable: true },
+                {name: 'Timor-Leste', id: 'TL', selectable: true },
+                {name: 'Togo', id: 'TG', selectable: true },
+                {name: 'Tokelau', id: 'TK', selectable: true },
+                {name: 'Tonga', id: 'TO', selectable: true },
+                {name: 'Trinidad and Tobago', id: 'TT', selectable: true },
+                {name: 'Tunisia', id: 'TN', selectable: true },
+                {name: 'Turkey', id: 'TR', selectable: true },
+                {name: 'Turkmenistan', id: 'TM', selectable: true },
+                {name: 'Turks and Caicos Islands', id: 'TC', selectable: true },
+                {name: 'Tuvalu', id: 'TV', selectable: true },
+                {name: 'Uganda', id: 'UG', selectable: true },
+                {name: 'Ukraine', id: 'UA', selectable: true },
+                {name: 'United Arab Emirates', id: 'AE', selectable: true },
+                {name: 'United Kingdom', id: 'GB', selectable: true },
+                {name: 'United States', id: 'US', selectable: true },
+                {name: 'United States Minor Outlying Islands', id: 'UM', selectable: true },
+                {name: 'Uruguay', id: 'UY', selectable: true },
+                {name: 'Uzbekistan', id: 'UZ', selectable: true },
+                {name: 'Vanuatu', id: 'VU', selectable: true },
+                {name: 'Venezuela', id: 'VE', selectable: true },
+                {name: 'Viet Nam', id: 'VN', selectable: true },
+                {name: 'Virgin Islands, British', id: 'VG', selectable: true },
+                {name: 'Virgin Islands, U.S.', id: 'VI', selectable: true },
+                {name: 'Wallis and Futuna', id: 'WF', selectable: true },
+                {name: 'Western Sahara', id: 'EH', selectable: true },
+                {name: 'Yemen', id: 'YE', selectable: true },
+                {name: 'Zambia', id: 'ZM', selectable: true },
+                {name: 'Zimbabwe', code: 'ZW'}
+
+            ];
+
+         /*
+          Argentina
+          Austria
+          Bahrain
+          Belgium
+          Bulgaria
+          Czech Republic
+          Denmark
+          Canada
+          Chile
+          China
+          Columbia
+          Costa -Rica
+          Estonia
+          Finland
+          France
+          Germany
+          Greece
+          Hungary
+          India
+          Indonesia
+          Iran
+          Italy
+          Japan
+          Jordan
+          Kenya
+          Latvia
+          Lithuania
+          Malaysia
+          Mexico
+          Netherlands
+          Nigeria
+          Norway
+          Poland
+          Romania
+          Saudi Arabia
+          Singapore
+          Slovak Republic
+          South Africa
+          Spain
+          Sweden
+          Switzerland
+          Taiwan
+          Turkey
+          UAE
+          United Kingdom
+          United States
+          Vietnam */
+
+            map.dataProvider = dataProvider;
+            map.write("mapdiv");
+
+            map.addListener("clickMapObject", function (event) {
+                console.log(event.mapObject);
+
+            });
+        });
+
+    </script>
+
+</head>
+
+<body>
+   <div id="mapdiv" style="width: 800px; background-color:#eeeeee; height: 500px;"></div>
+</body>
+
+</html>
